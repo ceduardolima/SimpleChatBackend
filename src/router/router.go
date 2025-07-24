@@ -1,7 +1,7 @@
 package router
 
 import (
-	"net/http"
+	"SimpleChat/src/controllers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,11 +9,8 @@ import (
 func CreateRouter() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
+	router.POST("/chat", controllers.SendMessage)
+	router.GET("/chat", controllers.GetMessage)
 
 	return router
 }
