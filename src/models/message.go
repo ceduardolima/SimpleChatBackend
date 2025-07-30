@@ -1,11 +1,11 @@
 package models
 
-type SendMessage struct {
-	SenderID   int    `json:"sender_id"`
-	ReceiverID int    `json:"receiver_id"`
-	Message    string `json:"message"`
-}
+import "time"
 
-type GetMessage struct {
-	UserID int `json:"user_id"`
+type Message struct {
+	ID             int
+	ConversationID int
+	SenderID       int
+	Message        string
+	CreatedAt      time.Time
 }
