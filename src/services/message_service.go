@@ -20,9 +20,7 @@ func NewMessageService() *MessageService {
 func (ms *MessageService) Create(message models.Message) (*models.Message, error) {
 	message.ID = ms.nextID
 	message.CreatedAt = time.Now()
-
 	ms.messages[message.ID] = message
-
 	ms.nextID = ms.nextID + 1
 
 	return &message, nil

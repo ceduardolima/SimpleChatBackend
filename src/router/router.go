@@ -11,7 +11,9 @@ func CreateRouter() *gin.Engine {
 	router := gin.Default()
 	cs := services.NewConversationService()
 	ms := services.NewMessageService()
-	ws := websockets.NewWSServer(cs, ms)
+	us := services.NewUserService()
+
+	ws := websockets.NewWSServer(cs, ms, us)
 
 	go ws.HandleMessages()
 
